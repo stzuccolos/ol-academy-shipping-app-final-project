@@ -3,10 +3,19 @@
 @import 'tailwindcss/utilities';
 
 @font-face {
-    font-family: 'Friendship';
+    font-family: 'Friendship Logo';
     src: url('assets/FeelfreePersonalUseRegular-lg2Bw.ttf') format('truetype');
 }
 
+@font-face {
+    font-family:'Friendship General' ;
+    src: url('assets/Rubik-VariableFont_wght.ttf') format('truetype');
+}
+
+body{
+    font-family: 'Friendship General', sans-serif;
+}
+
 .friendship-font {
-    font-family: 'Friendship', sans-serif;
+    font-family: 'Friendship Logo', sans-serif;
 }

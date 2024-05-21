@@ -1,11 +1,11 @@
-import NavBar from "./components/NavBar/NavBar";
-
+import HomePage from "./components/HomePage/HomePage";
+import NavBar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <>
-    <NavBar>
-    </NavBar>
+    <NavBar />
+    <HomePage/>
     </>
   );
 }
