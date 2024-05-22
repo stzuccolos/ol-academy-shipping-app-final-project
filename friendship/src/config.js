@@ -1,7 +1,7 @@
-export const Firebase_apiKey = process.env.REACT_APP_apiKey;
-export const Firebase_authDomain = process.env.REACT_APP_authDomain;
-export const Firebase_projectId = process.env.REACT_APP_projectId;
-export const Firebase_storageBucket = process.env.REACT_APP_storageBucket;
-export const Firebase_messagingSenderId = process.env.REACT_APP_messagingSenderId;
-export const Firebase_appId = process.env.REACT_APP_appId;
-export const Firebase_measurementId = process.env.REACT_APP_measurementId;
+export const Firebase_apiKey = "AIzaSyBPa2NuJ9kpXJs-Do7ne0-MBXiftoRFTRM"
+export const Firebase_authDomain = "ol-academy-shipping.firebaseapp.com"
+export const Firebase_projectId = "ol-academy-shipping"
+export const Firebase_storageBucket = "ol-academy-shipping.appspot.com"
+export const Firebase_messagingSenderId = "318278301382"
+export const Firebase_appId = "1:318278301382:web:db46913ca2c8eb842209c7"
+export const Firebase_measurementId = "G-ZPYNMG63D1";
