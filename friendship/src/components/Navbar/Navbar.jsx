@@ -39,12 +39,10 @@ export default function NavBar() {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/login"
-                className="bg-blue-700 rounded-lg p-3 text-white"
-              >
-                Login
-              </NavLink>
+                <Link
+                  to="/login"
+                  className="block py-2 px-3 text-black rounded md:bg-transparent md:p-0 dark:text-white"
+                />
             </li>
           </ul>
         </div>
