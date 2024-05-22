@@ -19,3 +19,7 @@ body{
 .friendship-font {
     font-family: 'Friendship Logo', sans-serif;
 }
+
+input:focus-visible {
+    outline: none;
+}
