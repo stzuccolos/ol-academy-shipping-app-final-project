@@ -26,6 +26,7 @@ export default function HomePage() {
         />
         Real Fr
       </h1>
+
       <div className="bg-violet-950 py-20">
         <HomeCarousel />
       </div>
@@ -67,6 +68,10 @@ export default function HomePage() {
             offer the best prices
           </p>
         </div>
+      </div>
+
+      <div>
+        
       </div>
     </div>
   );

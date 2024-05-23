@@ -74,6 +74,14 @@ const NavBar = () => {
                     Logout
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/order"
+                    className="block py-2 px-3 text-white bg-blue-900 rounded md:bg-transparent md:p-0"
+                  >
+                    New Order
+                  </Link>
+                </li>
               </>
             ) : (
               <li>
