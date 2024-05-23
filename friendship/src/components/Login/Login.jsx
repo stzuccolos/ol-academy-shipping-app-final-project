@@ -2,27 +2,24 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { auth } from "../Firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import ErrorToast from "../ErrorToast/ErrorToast";
-import { Link } from "react-router-dom";
-import "./Register.css";
+import "./Login.css";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Register() {
+
+export default function Login() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isRepeatVisible, setisRepeatVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isErrorVisible, setErrorVisible] = useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setIsVisible(!isVisible);
-  };
-
-  const toggleRepeatPasswordVisibility = () => {
-    setisRepeatVisible(!isRepeatVisible);
   };
 
   const ShowError = (message) => {
@@ -33,33 +30,23 @@ export default function Register() {
     }, 5000);
   };
 
-  const HandleRegister = async (event) => {
+  const HandleLogin = async (event) => {
     event.preventDefault();
 
-    if (password !== repeatPassword) {
-      ShowError("Passwords do not match");
-      return;
-    }
-
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+    await signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate("/");
       })
       .catch((error) => {
-        setErrorMessage(`${error.message}`);
-        setErrorVisible(true);
-        setTimeout(() => {
-          setErrorVisible(false);
-        }, 5000);
+        ShowError(`${error.message}`);
       });
   };
 
   return (
     <>
-      <div className="login-form bg-gray-900 shadow-lg py-10 px-5 rounded-3xl border-blue-950 border-2 ">
-        <h1 className="text-3xl text-white text-center my-5">Register</h1>
-        <form>
+      <div className="login-form bg-gray-900 shadow-lg py-10 px-5 rounded-3xl border-blue-950 border-2 w-1/4">
+        <h1 className="text-3xl text-white text-center my-5">Login</h1>
+        <form onSubmit={HandleLogin}>
           <div className="my-5 flex justify-center">
             <input
               type="text"
@@ -92,45 +79,24 @@ export default function Register() {
               />
             </button>
           </div>
-          <div className="my-5 flex justify-center">
-            <input
-              type={isRepeatVisible ? "text" : "password"}
-              placeholder="Password"
-              className="p-2 text-white bg-inherit rounded-lg border-blue-950 border-opacity-50 border-2 w-1/2"
-              onChange={(e) => {
-                setRepeatPassword(e.target.value);
-              }}
-              value={repeatPassword}
-            />
-            <button
-              type="button"
-              className="p-2 px-3 ml-2 rounded-xl border-blue-950 border-opacity-50 border-2 w-1/6"
-              onClick={toggleRepeatPasswordVisibility}
-            >
-              <FontAwesomeIcon
-                icon={isRepeatVisible ? faEyeSlash : faEye}
-                className="text-white"
-              />
-            </button>
-          </div>
+
           <div className="my-5 flex justify-center">
             <button
               type="submit"
               className="bg-blue-950 text-white p-2 rounded-lg w-4/6 mx-auto"
-              onClick={(e) => HandleRegister(e)}
             >
-              Register
+              Login
             </button>
           </div>
         </form>
 
-        <hr/>
+        <hr />
         <div className="my-5 flex justify-center">
           <Link
-            to="/login"
+            to="/register"
             className="bg-blue-950 text-white p-2 rounded-lg w-4/6 mx-auto text-center"
           >
-            Login
+            Register
           </Link>
         </div>
       </div>
