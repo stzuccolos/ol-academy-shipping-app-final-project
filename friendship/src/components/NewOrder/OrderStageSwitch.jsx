@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
+import { useContext, useState } from "react";
+import { OrderContext } from "./NewOrder";
 import Stage1 from "./Stage1";
 import Stage2 from "./Stage2";
 import Stage3 from "./Stage3";
 
-const OrderStageSwich = ({ stage }) => {
+const OrderStageSwich = () => {
+  const { stage } = useContext(OrderContext);
+
   switch (stage) {
     case 1:
       return <Stage1 />;

@@ -1,29 +1,27 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useContext, useState } from "react";
+import { OrderContext } from "./NewOrder";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFloppyDisk, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Stage3 = () => {
   const [departureDate, setDepartureDate] = useState("");
-
-  const departureRef = useRef(departureDate);
-
-  useEffect(() => {
-    departureRef.current = departureDate;
-  }, [departureDate]);
+  const { order, setOrder, setStage } = useContext(OrderContext);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("orderInfo"));
-    if (data) {
-      setDepartureDate(data.departureDate);
+    if (order) {
+      setDepartureDate(order.departureDate ?? "");
     }
+  }, [order]);
 
-    return () => {
-      const data = JSON.parse(localStorage.getItem("orderInfo"));
-      const newData = JSON.stringify({
-        ...data,
-        departureDate: departureRef.current,
-      });
-      localStorage.setItem("orderInfo", newData);
-    };
-  }, []);
+  const HandleBack = (e) => {
+    e.preventDefault();
+    setOrder({ ...order, departureDate });
+    setStage(2);
+  };
+
+  const HandleSubmit = () => {
+    setOrder({ ...order, departureDate });
+  };
 
   return (
     <div className="py-5">
@@ -37,6 +35,22 @@ const Stage3 = () => {
         onChange={(e) => setDepartureDate(e.target.value)}
       ></input>
 
+      <div className="flex justify-between">
+        <button
+          type="button"
+          className="bg-blue-950 border-violet-900 border-2 my-5 p-2 text-white rounded-xl w-1/3"
+          onClick={(e) => HandleBack(e)}
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+        <button
+          type="submit"
+          className="bg-blue-950 border-violet-900 border-2 my-5 p-2 text-white rounded-xl w-1/3"
+          onClick={() => HandleSubmit()}
+        >
+          <FontAwesomeIcon icon={faFloppyDisk} />
+        </button>
+      </div>
     </div>
   );
 };

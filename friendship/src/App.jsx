@@ -4,12 +4,13 @@ import Register from "./components/Register/Register";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import NewOrder from "./components/NewOrder/NewOrder";
+import Orders from "./components/Orders/Orders";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <Navbar/>
+      <Navbar />
 
       <div className="navbar-space">
         <Routes>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/order" element={<NewOrder />} />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </div>
     </>

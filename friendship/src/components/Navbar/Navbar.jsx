@@ -8,6 +8,7 @@ const NavBar = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
+      console.log('auth changed in navbar', user)
       if (user) {
         setIsUserLoggedIn(true);
       } else {
@@ -57,11 +58,19 @@ const NavBar = () => {
               <>
                 <li>
                   <NavLink
-                    to="/profile"
+                    to="/orders"
                     className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0"
                   >
-                    Profile
+                    Orders
                   </NavLink>
+                </li>
+                <li>
+                  <Link
+                    to="/order"
+                    className="block py-2 px-3 text-white bg-blue-900 rounded md:bg-transparent md:p-0"
+                  >
+                    New Order
+                  </Link>
                 </li>
                 <li>
                   <Link
@@ -72,14 +81,6 @@ const NavBar = () => {
                     }}
                   >
                     Logout
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/order"
-                    className="block py-2 px-3 text-white bg-blue-900 rounded md:bg-transparent md:p-0"
-                  >
-                    New Order
                   </Link>
                 </li>
               </>
