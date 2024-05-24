@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const images = [
-  "/src/assets/carousel-images/carousel-img-1.jpg",
-  "/src/assets/carousel-images/carousel-img-2.jpg",
-  "/src/assets/carousel-images/carousel-img-3.jpg",
+  "carousel-images/carousel-img-1.jpg",
+  "carousel-images/carousel-img-2.jpg",
+  "carousel-images/carousel-img-3.jpg",
 ];
 
 export default function HomeCarousel() {
