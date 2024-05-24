@@ -6,8 +6,13 @@ import {
   faDollarSign,
 } from "@fortawesome/free-solid-svg-icons";
 import HomeCarousel from "../Carousel/HomeCarousel";
+import Thingamajig from "./Thingamajig";
 
 export default function HomePage() {
+  const text1 = "We are reliable and we are always there for you";
+  const text2 = "We are safe and we keep your cargo safe";
+  const text3 = "We are cheap and we offer the best prices";
+
   return (
     <div>
       <h1 className="text-center text-9xl text-white friendship-font my-10">
@@ -32,47 +37,12 @@ export default function HomePage() {
       </div>
 
       <div className="flex justify-evenly my-10">
-        <div className="p-10 rounded-xl bg-white border-2 border-blue-900 ">
-          <h1 className="text-center">
-            <FontAwesomeIcon icon={faStopwatch} />
-          </h1>
-          <p className="text-center font-bold text-gray-500">Reliable</p>
-          <hr />
-          <p className="text-center">
-            We are reliable and we are
-            <br />
-            always there for you
-          </p>
-        </div>
-        <div className="p-10 rounded-xl bg-white border-2 border-blue-900 ">
-          <h1 className="text-center">
-            <FontAwesomeIcon icon={faShieldHalved} />
-          </h1>
-          <p className="text-center font-bold text-gray-500">Safe</p>
-          <hr />
-          <p className="text-center">
-            We are safe and we
-            <br />
-            keep your cargo safe
-          </p>
-        </div>
-        <div className="p-10 rounded-xl bg-white border-2 border-blue-900 ">
-          <h1 className="text-center">
-            <FontAwesomeIcon icon={faDollarSign} />
-          </h1>
-          <p className="text-center font-bold text-gray-500">Cheap</p>
-          <hr />
-          <p className="text-center">
-            We are cheap and we
-            <br />
-            offer the best prices
-          </p>
-        </div>
+        <Thingamajig text={text1} icon={faStopwatch} />
+        <Thingamajig text={text2} icon={faShieldHalved} />
+        <Thingamajig text={text3} icon={faDollarSign} />
       </div>
 
-      <div>
-        
-      </div>
+      <div></div>
     </div>
   );
 }
